@@ -1128,7 +1128,7 @@ void SettingsWindow::sendSignals()
 
 void SettingsWindow::sendAcceptedSettings()
 {
-    emit settingsData(acceptedSettings.toVMap());
+    emit settingsData(acceptedSettings.toVMap(), true);
     emit keyMapData(acceptedKeyMap);
 }
 
@@ -1185,14 +1185,14 @@ void SettingsWindow::setZoomPreset(int which)
     ui->playbackAutoZoom->setChecked(autoZoom);
     ui->playbackAutoZoomMethod->setCurrentIndex(zoomMethod);
 
-    emit settingsData(acceptedSettings.toVMap());
+    emit settingsData(acceptedSettings.toVMap(), false);
 }
 
 void SettingsWindow::setHidePanels(bool hidden)
 {
     ui->fullscreenHidePanels->setChecked(hidden);
     WIDGET_LOOKUP(ui->fullscreenHidePanels).setValue(hidden);
-    emit settingsData(acceptedSettings.toVMap());
+    emit settingsData(acceptedSettings.toVMap(), false);
 }
 
 void SettingsWindow::setAudioFilter(QString filter, QString options, bool add)
@@ -1261,13 +1261,10 @@ QList<MpvOption> SettingsWindow::parseMpvOptions(const QString &optionsInline) c
     const QStringList options = optionsInline.split(' ', Qt::SkipEmptyParts);
     for (const QString &option : options) {
         int equalPos = option.indexOf('=');
-        if (equalPos > 0) {
-            QString name = option.left(equalPos).trimmed();
-            QString value = option.mid(equalPos + 1).trimmed();
-            mpvOptions.append(MpvOption{name, value});
-        } else {
-            mpvOptions.append(MpvOption{option.trimmed(), QString()});
-        }
+        QString name = equalPos > 0 ? option.left(equalPos) : option;
+        QString value = equalPos > 0 ? option.mid(equalPos + 1) : QString();
+        name = name.startsWith("--") ? name.sliced(2) : name;
+        mpvOptions.append(MpvOption{name, value});
     }
     return mpvOptions;
 }
