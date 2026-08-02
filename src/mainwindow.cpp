@@ -402,8 +402,14 @@ void MainWindow::changeEvent(QEvent *event)
             videoPreview->updatePalette();
         ui->statusTime->updatePalette();
     }
-    else if (event->type() == QEvent::WindowStateChange && isMaximized())
-        emit windowMaximized();
+    else if (event->type() == QEvent::WindowStateChange) {
+        if (isMaximized())
+            emit windowMaximized();
+        else if (isMinimized() && minimizeToTray) {
+            isHiddenToTray = true;
+            hide();
+        }
+    }
 }
 
 void MainWindow::moveEvent(QMoveEvent *event)
@@ -459,6 +465,12 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
 void MainWindow::closeEvent(QCloseEvent *event)
 {
     Logger::log(logModule, "closeEvent");
+    if (closeToTray && !isHiddenToTray && !reallyClose) {
+        hide();
+        isHiddenToTray = true;
+        event->ignore();
+        return;
+    }
     bool showPlaylist = ui->actionViewHidePlaylist->isChecked();
     playlistWindow_->close();
     ui->actionViewHidePlaylist->setChecked(showPlaylist);
@@ -733,6 +745,8 @@ void MainWindow::setupTrayIcon()
     Logger::log(logModule, "rendering trayIcon sizes");
     trayIcon->setIcon(createIconFromSvg(mpcQtIconPath, 64));
     Logger::log(logModule, "rendering trayIcon sizes done");
+    connect(trayIcon, &QSystemTrayIcon::activated,
+            this, &MainWindow::trayIcon_activated);
 }
 
 void MainWindow::setupActionGroups()
@@ -893,6 +907,12 @@ void MainWindow::setupBottomArea()
     foreach(QWidget *w, bottomWidgets)
         w->setMouseTracking(true);
     ui->bottomArea->setMouseTracking(true);
+    subsMenu = new QMenu();
+    muteMenu = new QMenu();
+    connect(ui->subs, &QPushButton::customContextMenuRequested,
+            this, &MainWindow::showSubsMenu);
+    connect(ui->mute, &QPushButton::customContextMenuRequested,
+            this, &MainWindow::showMuteMenu);
 }
 
 void MainWindow::setupIconThemer()
@@ -1365,6 +1385,16 @@ void MainWindow::showOsdTimer(bool onSeek)
     }
 }
 
+void MainWindow::showSubsMenu()
+{
+    subsMenu->exec(QCursor::pos());
+}
+
+void MainWindow::showMuteMenu()
+{
+    muteMenu->exec(QCursor::pos());
+}
+
 QList<QUrl> MainWindow::doQuickOpenFileDialog()
 {
     static QFileDialog::Options options = QFileDialog::Options();
@@ -1801,6 +1831,16 @@ void MainWindow::setTrayIcon(bool enabled)
         trayIcon->hide();
 }
 
+void MainWindow::setCloseToTray(bool enabled)
+{
+    closeToTray = enabled;
+}
+
+void MainWindow::setMinimizeToTray(bool enabled)
+{
+    minimizeToTray = enabled;
+}
+
 void MainWindow::setTitleBarFormat(Helpers::TitlePrefix titlebarFormat)
 {
     titlebarFormat_ = titlebarFormat;
@@ -1976,6 +2016,8 @@ void MainWindow::setMediaTitle(const QString &title)
         newTitle = QString();
     if (!newTitle.isEmpty())
         windowTitle = newTitle;
+    if (trayIcon)
+        trayIcon->setToolTip(windowTitle);
 
     if (freestanding_)
         windowTitle.append(tr(" [Freestanding]"));
@@ -2088,7 +2130,7 @@ void MainWindow::setBottomAreaHideTime(int milliseconds)
     hideTimer.setInterval(milliseconds);
 }
 
-void MainWindow::setVideoPreview(bool enable)
+void MainWindow::setVideoPreview(bool enable, int heightPercent)
 {
     if (!videoPreview && enable) {
         videoPreview = new VideoPreview(this);
@@ -2098,6 +2140,7 @@ void MainWindow::setVideoPreview(bool enable)
         videoPreview->deleteLater();
         videoPreview = nullptr;
     }
+    previewHeightPercent = heightPercent;
 }
 
 void MainWindow::setTimeTooltip(bool shown, bool above)
@@ -2148,13 +2191,17 @@ void MainWindow::setFullscreenHidePanels(bool hidden)
     }
 }
 
+void MainWindow::checkExitFullscreenOnEnd()
+{
+    if (fullscreenExitOnEnd && fullscreenMode_)
+        ui->actionViewFullscreen->setChecked(false);
+}
+
 void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, int64_t bufferFillState)
 {
     // Update the fullscreen state
     if (state == PlaybackManager::StoppedState) {
-        if (fullscreenExitOnEnd && fullscreenMode_ == true) {
-            ui->actionViewFullscreen->setChecked(false);
-        }
+        checkExitFullscreenOnEnd();
     } else if (state == PlaybackManager::PlayingState) {
         if (fullscreenOnPlay && fullscreenMode_ == false) {
             ui->actionViewFullscreen->setChecked(true);
@@ -2181,8 +2228,12 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, int64_t 
     case PlaybackManager::WaitingState:
         ui->status->setText(tr("Unknown"));
         break;
+    case PlaybackManager::ErrorState:
+        ui->status->setText(tr("Error"));
+        break;
     }
-    isPlaying = state != PlaybackManager::StoppedState;
+    isPlaying = state != PlaybackManager::StoppedState &&
+                state != PlaybackManager::ErrorState;
     isPaused = state == PlaybackManager::PausedState;
     setUiEnabledState(state != PlaybackManager::StoppedState);
     if (isPaused) {
@@ -2237,7 +2288,9 @@ void MainWindow::setChapters(QList<Chapter> chapters)
 void MainWindow::setAudioTracks(QList<Track> tracks)
 {
     ui->menuPlayAudio->clear();
+    muteMenu->clear();
     ui->menuPlayAudio->setEnabled(false);
+    muteMenu->setEnabled(false);
     if (audioTracksGroup) {
         audioTracksGroup->deleteLater();
         audioTracksGroup = nullptr;
@@ -2248,6 +2301,7 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
     if (!hasAudio)
         return;
     ui->menuPlayAudio->setEnabled(true);
+    muteMenu->setEnabled(true);
     audioTracksGroup = new QActionGroup(this);
     for (const Track &track : tracks) {
         QAction *action = new QAction(ui->menuPlayAudio);
@@ -2261,6 +2315,7 @@ void MainWindow::setAudioTracks(QList<Track> tracks)
             setVolumeMuteState(false, true);
         });
         ui->menuPlayAudio->addAction(action);
+        muteMenu->addAction(action);
     }
     ui->menuPlayAudio->addSeparator();
     ui->menuPlayAudio->addMenu(ui->menuPlayAudioFilters);
@@ -2311,7 +2366,9 @@ void MainWindow::setVideoTracks(QList<Track> tracks)
 void MainWindow::setSubtitleTracks(QList<Track > tracks)
 {
     ui->menuPlaySubtitles->clear();
+    subsMenu->clear();
     ui->menuPlaySubtitles->setEnabled(false);
+    subsMenu->setEnabled(false);
     if (subtitleTracksGroup) {
         subtitleTracksGroup->deleteLater();
         subtitleTracksGroup = nullptr;
@@ -2324,6 +2381,7 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
     if (!hasSubs)
         return;
     ui->menuPlaySubtitles->setEnabled(true);
+    subsMenu->setEnabled(true);
     subtitleTracksGroup = new QActionGroup(this);
     for (const Track &track : tracks) {
         QAction *action = new QAction(ui->menuPlaySubtitles);
@@ -2338,6 +2396,7 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
                 setSubtitlesEnabled(true, true);
         });
         ui->menuPlaySubtitles->addAction(action);
+        subsMenu->addAction(action);
     }
     ui->menuPlaySubtitles->addSeparator();
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesEnabled);
@@ -2676,6 +2735,7 @@ void MainWindow::on_actionFileClose_triggered()
 
 void MainWindow::on_actionFileExit_triggered()
 {
+    reallyClose = true;
     close();
 }
 
@@ -3245,6 +3305,7 @@ void MainWindow::on_actionPlayStop_triggered()
     isPlaying = false;
     updateSize();
     ui->play->setFocus();
+    muteMenu->clear();
 }
 
 void MainWindow::on_actionPlayFrameBackward_triggered()
@@ -3565,8 +3626,13 @@ void MainWindow::position_hoverValue(double position, QString chapterInfo, doubl
                                       chapterInfo.isEmpty() ? "" : " - ",
                                       chapterInfo);
     QPoint where = positionSlider_->mapTo(this, QPoint(std::round(mouseX), timeTooltipAbove ? -1 : 65));
-    if (videoPreview && isVideo_ && !isDragging)
-        videoPreview->show(t, position, where, this->width());
+    if (videoPreview && isVideo_ && !isDragging) {
+        auto screen = this->screen();
+        if (!screen)
+            return;
+        int previewHeight = screen->geometry().height() * previewHeightPercent / 100;
+        videoPreview->show(t, position, where, this->width(), previewHeight);
+    }
     else if (tooltip) {
         QString textTemplate = QString("%1%2%3").arg(Helpers::toDateFormatFixed(
                                                         0,
@@ -3631,6 +3697,17 @@ void MainWindow::hideTimer_timeout()
     if (fullscreenMode_ &&
             !ui->bottomArea->geometry().contains(mpvw->mapFromGlobal(QCursor::pos())))
         ui->bottomArea->hide();
+}
+
+void MainWindow::trayIcon_activated(QSystemTrayIcon::ActivationReason reason)
+{
+    if (reason == QSystemTrayIcon::Trigger || reason == QSystemTrayIcon::DoubleClick) {
+        isHiddenToTray ? show() : hide();
+        isHiddenToTray = !isHiddenToTray;
+    } else if (reason == QSystemTrayIcon::MiddleClick) {
+        reallyClose = true;
+        close();
+    }
 }
 
 void MainWindow::on_actionPlaylistRemoveSelected_triggered()

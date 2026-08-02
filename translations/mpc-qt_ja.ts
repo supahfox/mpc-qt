@@ -1491,6 +1491,10 @@ No action will be triggered.</source>
         <translation>バッファリング (%1%)</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation>エラー</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>再生リストへクイック追加(&amp;Q)</translation>
     </message>
@@ -2165,6 +2169,14 @@ No action will be triggered.</source>
     <message>
         <source>Reset to System</source>
         <translation>既定へリセット</translation>
+    </message>
+    <message>
+        <source>Dark colors</source>
+        <translation>ダークカラー</translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">ダークカラーを使用</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -4346,7 +4358,7 @@ media file played</source>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>MPC-HC のように音量を 100% に制限する</translation>
+        <translation type="vanished">MPC-HC のように音量を 100% に制限する</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4790,7 +4802,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>ビデオ プレビューを表示 (再起動が必要です)</translation>
+        <translation type="vanished">ビデオ プレビューを表示 (再起動が必要です)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4911,6 +4923,22 @@ media file played</source>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
         <translation>必要に応じて、フォルダー内の最初または最後のファイルに戻る</translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation>最大音量を上げる :</translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
+        <translation>動画のプレビューを表示 (再起動が必要)、高さの設定 (画面の ％) :</translation>
+    </message>
+    <message>
+        <source>Minimize to tray</source>
+        <translation>トレイに最小化</translation>
+    </message>
+    <message>
+        <source>Close to tray</source>
+        <translation>閉じるでトレイへ</translation>
     </message>
 </context>
 <context>

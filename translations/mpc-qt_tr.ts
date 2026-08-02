@@ -1483,6 +1483,10 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <translation>Arabelleğe alınıyor (%%1)</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished">Hata</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>&amp;Tez Oynatma Listesine Ekle</translation>
     </message>
@@ -2145,6 +2149,14 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     <message>
         <source>Reset to System</source>
         <translation>Sistem Ayarlarına Sıfırla</translation>
+    </message>
+    <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">Koyu renkleri kullan</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -4314,7 +4326,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>mpc-hc gibi ses düzeyini %100 olarak sınırla</translation>
+        <translation type="vanished">mpc-hc gibi ses düzeyini %100 olarak sınırla</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4762,7 +4774,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>Video önizlemelerini göster (yeniden başlatma gerekir)</translation>
+        <translation type="vanished">Video önizlemelerini göster (yeniden başlatma gerekir)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4874,6 +4886,22 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimize to tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close to tray</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

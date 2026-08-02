@@ -1475,6 +1475,10 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <translation>Membuffer (%1%)</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished">Kesalahan</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>Tambah Cepat ke Daftar Putar</translation>
     </message>
@@ -2101,6 +2105,14 @@ Tidak ada tindakan yang akan dipicu.</translation>
     <message>
         <source>Reset to System</source>
         <translation>Atur Ulang ke Sistem</translation>
+    </message>
+    <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">Gunakan warna gelap</translation>
     </message>
 </context>
 <context>
@@ -4126,7 +4138,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>Batasi volume hingga 100% seperti mpc-hc</translation>
+        <translation type="vanished">Batasi volume hingga 100% seperti mpc-hc</translation>
     </message>
     <message>
         <source>HDR Compute Peak</source>
@@ -4546,7 +4558,7 @@ file media yang diputar</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>Tampilkan pratinjau video (perlu mulai ulang)</translation>
+        <translation type="vanished">Tampilkan pratinjau video (perlu mulai ulang)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4659,6 +4671,22 @@ file media yang diputar</translation>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
         <translation>Ulangi ke file pertama/terakhir di folder jika perlu</translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimize to tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close to tray</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1491,6 +1491,10 @@ Es wird keine Aktion ausgelöst.</translation>
         <translation>Puffern (%1%)</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished">Fehler</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>Schnelles &amp;Hinzufügen zur Wiedergabeliste</translation>
     </message>
@@ -2161,6 +2165,14 @@ Es wird keine Aktion ausgelöst.</translation>
     <message>
         <source>Reset to System</source>
         <translation>Auf Systemeinstellungen zurücksetzen</translation>
+    </message>
+    <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">Dunkle Farben nutzen</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -4318,7 +4330,7 @@ media file played</source>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>Lautstärke auf 100% begrenzen (wie mpc-hc)</translation>
+        <translation type="vanished">Lautstärke auf 100% begrenzen (wie mpc-hc)</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4742,7 +4754,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>Video-Vorschau anzeigen (erfordert Neustart)</translation>
+        <translation type="vanished">Video-Vorschau anzeigen (erfordert Neustart)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4855,6 +4867,22 @@ media file played</source>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
         <translation>Springe zurück zur ersten/letzten Datei im Verzeichnis, wenn nötig</translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimize to tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close to tray</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

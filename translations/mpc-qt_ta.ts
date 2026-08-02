@@ -1483,6 +1483,10 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished">பிழை</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>&amp; பிளேலிச்ட்டில் விரைவாக சேர்க்கவும்</translation>
     </message>
@@ -2145,6 +2149,10 @@ No action will be triggered.</source>
     <message>
         <source>Reset to System</source>
         <translation>கணினிக்கு மீட்டமை</translation>
+    </message>
+    <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Generate</source>
@@ -4326,7 +4334,7 @@ media file played</source>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>MPC-HC போன்ற அளவை 100% ஆக கட்டுப்படுத்தவும்</translation>
+        <translation type="vanished">MPC-HC போன்ற அளவை 100% ஆக கட்டுப்படுத்தவும்</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4770,7 +4778,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>வீடியோ முன்னோட்டத்தைக் காட்டு (மறுதொடக்கம் தேவை)</translation>
+        <translation type="vanished">வீடியோ முன்னோட்டத்தைக் காட்டு (மறுதொடக்கம் தேவை)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4882,6 +4890,22 @@ media file played</source>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimize to tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close to tray</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

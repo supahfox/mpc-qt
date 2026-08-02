@@ -42,6 +42,11 @@ TrackData TrackData::fromMap(const QVariantMap &map)
         td.lang = map["lang"].toString();
     if (map.contains("title"))
         td.title = map["title"].toString();
+    else if (map.contains("metadata")) {
+        QVariantMap metadata = map["metadata"].toMap();
+        if (metadata.contains("name"))
+            td.title = metadata["name"].toString();
+    }
     if (map.contains("forced"))
         td.isForced = map["forced"].toBool();
     if (map.contains("external"))
@@ -119,8 +124,8 @@ void PlaybackManager::setMpvObject(MpvObject *mpvObject, bool makeConnections)
                 this, &PlaybackManager::mpvw_pausedChanged);
         connect(mpvObject, &MpvObject::playbackIdling,
                 this, &PlaybackManager::mpvw_playbackIdling);
-        connect(mpvObject, &MpvObject::playbackFinished,
-                this, &PlaybackManager::mpvw_playbackFinished);
+        connect(mpvObject, &MpvObject::playbackError,
+                this, &PlaybackManager::mpvw_playbackError);
         connect(mpvObject, &MpvObject::eofReachedChanged,
                 this, &PlaybackManager::mpvw_eofReachedChanged);
         connect(mpvObject, &MpvObject::mediaTitleChanged,
@@ -180,7 +185,8 @@ bool PlaybackManager::eofReached()
 
 void PlaybackManager::drawLogo()
 {
-    if (playbackState_ == PlaybackManager::StoppedState)
+    if (playbackState_ == PlaybackManager::StoppedState ||
+        playbackState_ == PlaybackManager::ErrorState)
         mpvObject_->setDrawLogo(true);
 }
 
@@ -203,7 +209,8 @@ void PlaybackManager::openSeveralFiles(QList<QUrl> what, bool important)
                          && (important || nowPlayingItem == QUuid()))
                         || !playlistWindow_->isVisible()
                         || (appendToQuickPlaylist && (playbackState_ == StoppedState
-                                                  || playbackState_ == WaitingState));
+                                                  || playbackState_ == WaitingState
+                                                  || playbackState_ == ErrorState));
     PlaylistItem playlistItem = playlistWindow_->addToCurrentPlaylist(what);
     if (playAfterAdd && !playlistItem.item.isNull()) {
         QUrl urlToPlay = playlistWindow_->getUrlOf(playlistItem.list, playlistItem.item);
@@ -268,7 +275,8 @@ void PlaybackManager::loadSubtitle(QUrl with)
 void PlaybackManager::playPlayer()
 {
     unpausePlayer();
-    if (playbackState_ == StoppedState) {
+    if (playbackState_ == StoppedState ||
+        playbackState_ == ErrorState) {
         startPlayer();
     }
 }
@@ -436,7 +444,9 @@ void PlaybackManager::navigateToChapter(int64_t chapter)
 
 void PlaybackManager::navigateToTime(double time)
 {
-    if (playbackState_ == WaitingState || playbackState_ == StoppedState)
+    if (playbackState_ == WaitingState ||
+        playbackState_ == StoppedState ||
+        playbackState_ == ErrorState)
         mpvObject_->setStartTime(time);
     else
         mpvObject_->setTime(time);
@@ -936,6 +946,7 @@ bool PlaybackManager::playNextTrack(bool replaceMpvPlaylist)
                           false, QUrl(), false, replaceMpvPlaylist);
         return true;
     }
+    emit noMoreFilesToPlay();
     return false;
 }
 
@@ -995,7 +1006,10 @@ bool PlaybackManager::playNextFileUrl(QUrl url, int delta, bool replaceMpvPlayli
 bool PlaybackManager::playNextFile(bool replaceMpvPlaylist, int delta)
 {
     QUrl url = playlistWindow_->getUrlOfFirst(nowPlayingList);
-    return playNextFileUrl(url, delta, replaceMpvPlaylist);
+    bool success = playNextFileUrl(url, delta, replaceMpvPlaylist);
+    if (!success && delta == 1)
+        emit noMoreFilesToPlay();
+    return success;
 }
 
 void PlaybackManager::playPrevFile()
@@ -1079,12 +1093,11 @@ void PlaybackManager::mpvw_playbackIdling(bool yes)
     }
 }
 
-void PlaybackManager::mpvw_playbackFinished() {
-    if (playbackState_ == LoadingState) {
-        playbackState_ = StoppedState;
-        emit stateChanged(playbackState_);
-        mpvw_eofReachedChanged(strTrue);
-    }
+void PlaybackManager::mpvw_playbackError()
+{
+    playbackState_ = ErrorState;
+    emit stateChanged(playbackState_);
+    checkAfterPlayback();
 }
 
 void PlaybackManager::mpvw_eofReachedChanged(QString eof) {
@@ -1100,7 +1113,7 @@ void PlaybackManager::mpvw_eofReachedChanged(QString eof) {
     }
     eofReached_ = true;
 
-    emit stoppedPlaying();
+    emit stoppedPlayingAtEof();
 
     int extraTimes = playlistWindow_->extraPlayTimes(nowPlayingList, nowPlayingItem);
     playlistWindow_->setExtraPlayTimes(nowPlayingList, nowPlayingItem, extraTimes - 1);

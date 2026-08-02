@@ -88,6 +88,8 @@ signals:
 
     void appendToQuickPlaylist(bool yes);
     void trayIcon(bool yes);
+    void closeToTray(bool yes);
+    void minimizeToTray(bool yes);
     void showOsd(bool yes);
     void limitProportions(bool yes);
     void disableOpenDiscMenu(bool yes);
@@ -185,7 +187,7 @@ signals:
     void volumeMax(int maximum);
     void mpvMouseEvents(bool yes);
     void mpvKeyEvents(bool yes);
-    void videoPreview(bool enable);
+    void videoPreview(bool enable, int heightPercent);
     void timeTooltip(bool yes, bool above);
     void osdTimerOnSeek(bool yes);
 
@@ -236,6 +238,8 @@ private slots:
 
     void on_playerOpenNew_toggled(bool checked);
 
+    void on_playerTrayIcon_toggled(bool checked);
+
     void on_playerAppendToQuickPlaylist_toggled(bool checked);
 
     void on_playerKeepHistory_toggled(bool checked);
@@ -243,6 +247,8 @@ private slots:
     void on_interfaceIconsTheme_currentIndexChanged(int index);
 
     void on_interfaceWidgetCustom_toggled(bool checked);
+
+    void on_interfaceWidgetDark_toggled(bool checked);
 
     void on_interfaceIconsCustomBrowse_clicked();
 
@@ -327,6 +333,8 @@ private slots:
     void on_screenshotDirectorySet_toggled(bool checked);
 
     void on_screenshotDirectoryBrowse_clicked();
+
+    void on_tweaksMaxVolume_toggled(bool checked);
 
     void on_tweaksPreferWayland_toggled(bool checked);
 

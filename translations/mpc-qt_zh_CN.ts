@@ -1491,6 +1491,10 @@ No action will be triggered.</source>
         <translation>正在缓冲（%1%）</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation>错误</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>快速添加到播放列表(&amp;Q)</translation>
     </message>
@@ -2121,6 +2125,14 @@ No action will be triggered.</source>
     <message>
         <source>Reset to System</source>
         <translation>重置为系统默认值</translation>
+    </message>
+    <message>
+        <source>Dark colors</source>
+        <translation>深色</translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">使用深色</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -4238,7 +4250,7 @@ media file played</source>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>将音量限制为100%，如 MPC-HC</translation>
+        <translation type="vanished">将音量限制为100%，如 MPC-HC</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4666,7 +4678,7 @@ media file played</source>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>显示视频预览（需要重启）</translation>
+        <translation type="vanished">显示视频预览（需要重启）</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4787,6 +4799,22 @@ media file played</source>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
         <translation>如果需要，循环返回到文件夹中的第一个/最后一个文件</translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation>将最大音量增加到：</translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
+        <translation>显示视频预览（需要重启），将其高度设置为（屏幕的百分比）：</translation>
+    </message>
+    <message>
+        <source>Minimize to tray</source>
+        <translation>最小化到托盘</translation>
+    </message>
+    <message>
+        <source>Close to tray</source>
+        <translation>关闭到托盘</translation>
     </message>
 </context>
 <context>

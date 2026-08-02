@@ -719,6 +719,8 @@ void SettingsWindow::sendSignals()
 
     emit appendToQuickPlaylist(WIDGET_LOOKUP(ui->playerAppendToQuickPlaylist).toBool());
     emit trayIcon(WIDGET_LOOKUP(ui->playerTrayIcon).toBool());
+    emit closeToTray(WIDGET_LOOKUP(ui->playerCloseToTray).toBool());
+    emit minimizeToTray(WIDGET_LOOKUP(ui->playerMinimizeToTray).toBool());
     emit showOsd(WIDGET_LOOKUP(ui->playerOSD).toBool());
     emit limitProportions(WIDGET_LOOKUP(ui->playerLimitProportions).toBool());
     emit disableOpenDiscMenu(WIDGET_LOOKUP(ui->playerDisableOpenDisc).toBool());
@@ -777,7 +779,7 @@ void SettingsWindow::sendSignals()
     emit webserverRoot(WIDGET_PLACEHOLD_LOOKUP(ui->webRoot));
     emit webserverDefaultPage(WIDGET_PLACEHOLD_LOOKUP(ui->webDefaultPage));
 
-    int volmax = WIDGET_LOOKUP(ui->tweaksVolumeLimit).toBool() ? 100 : 130;
+    int volmax = WIDGET_LOOKUP(ui->tweaksMaxVolume).toBool() ? WIDGET_LOOKUP(ui->tweaksMaxVolumeValue).toInt() : 100;
     emit volumeMax(volmax);
     emit volumeStep(WIDGET_LOOKUP(ui->playbackVolumeStep).toInt());
     {
@@ -1112,7 +1114,7 @@ void SettingsWindow::sendSignals()
     emit loopFolder(WIDGET_LOOKUP(ui->tweaksLoopFolder).toBool());
     emit mpvMouseEvents(WIDGET_LOOKUP(ui->tweaksMpvMouseEvents).toBool());
     emit mpvKeyEvents(WIDGET_LOOKUP(ui->tweaksMpvKeyEvents).toBool());
-    emit videoPreview(WIDGET_LOOKUP(ui->tweaksVideoPreview).toBool());
+    emit videoPreview(WIDGET_LOOKUP(ui->tweaksVideoPreview).toBool(), WIDGET_LOOKUP(ui->tweaksVideoPreviewHeight).toInt());
     emit timeTooltip(WIDGET_LOOKUP(ui->tweaksTimeTooltip).toBool(),
                      WIDGET_LOOKUP(ui->tweaksTimeTooltipLocation).toInt() == 0);
     emit osdTimerOnSeek(WIDGET_LOOKUP(ui->tweaksOsdTimerOnSeek).toBool());
@@ -1401,8 +1403,19 @@ void SettingsWindow::keyPressEvent(QKeyEvent *event)
 void SettingsWindow::on_playerOpenNew_toggled(bool checked)
 {
     ui->playerAppendToQuickPlaylist->setEnabled(!checked);
-    if (checked)
+    if (checked) {
         ui->playerAppendToQuickPlaylist->setChecked(false);
+        ui->playerCloseToTray->setChecked(false);
+        ui->playerMinimizeToTray->setChecked(false);
+    }
+}
+
+void SettingsWindow::on_playerTrayIcon_toggled(bool checked)
+{
+    if (!checked) {
+        ui->playerCloseToTray->setChecked(false);
+        ui->playerMinimizeToTray->setChecked(false);
+    }
 }
 
 void SettingsWindow::on_playerAppendToQuickPlaylist_toggled(bool checked)
@@ -1434,6 +1447,11 @@ void SettingsWindow::on_interfaceWidgetCustom_toggled(bool checked)
 {
     ui->interfaceWidgetCustomScrollArea->setEnabled(checked);
     paletteEditor->setEnabled(checked);
+}
+
+void SettingsWindow::on_interfaceWidgetDark_toggled(bool checked)
+{
+    paletteEditor->setUseDarkColors(checked);
 }
 
 void SettingsWindow::on_interfaceIconsCustomBrowse_clicked()
@@ -1743,6 +1761,11 @@ void SettingsWindow::on_screenshotDirectoryBrowse_clicked()
         return;
 
     ui->screenshotDirectoryValue->setText(dir);
+}
+
+void SettingsWindow::on_tweaksMaxVolume_toggled(bool checked)
+{
+    ui->tweaksMaxVolumeValue->setEnabled(checked);
 }
 
 // REMOVEME: Disable auto zoom in Wayland mode as window centering isn't possible yet

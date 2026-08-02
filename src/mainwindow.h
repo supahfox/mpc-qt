@@ -117,6 +117,8 @@ private:
     void updateMouseHideTime();
     void updateDiscList();
     void showOsdTimer(bool onSeek);
+    void showSubsMenu();
+    void showMuteMenu();
     void resizePlaylistToFit();
     QList<QUrl> doQuickOpenFileDialog();
     void showStepAndSubsButtons(bool show);
@@ -248,6 +250,8 @@ public slots:
     void setFullscreenMode(bool fullscreenMode);
     void setNoVideoSize(const QSize &sz);
     void setTrayIcon(bool enabled);
+    void setCloseToTray(bool enabled);
+    void setMinimizeToTray(bool enabled);
     void setTitleBarFormat(Helpers::TitlePrefix titlebarFormat);
     void setWindowedMouseMap(const MouseStateMap &map);
     void setFullscreenMouseMap(const MouseStateMap &map);
@@ -275,10 +279,11 @@ public slots:
     void setMouseHideTimeWindowed(int msec);
     void setBottomAreaBehavior(Helpers::ControlHiding method);
     void setBottomAreaHideTime(int milliseconds);
-    void setVideoPreview(bool enable);
+    void setVideoPreview(bool enable, int heightPercent);
     void setTimeTooltip(bool show, bool above);
     void setOsdTimerOnSeek(bool enabled);
     void setFullscreenHidePanels(bool hidden);
+    void checkExitFullscreenOnEnd();
     void setPlaybackState(PlaybackManager::PlaybackState state, int64_t bufferFillState);
     void setPlaybackType(PlaybackManager::PlaybackType type);
     void disableChaptersMenus();
@@ -488,6 +493,7 @@ private slots:
     void playlistWindow_windowDocked();
     void playlistWindow_playlistAddItem(const QUuid &playlistUuid);
     void hideTimer_timeout();
+    void trayIcon_activated(QSystemTrayIcon::ActivationReason reason);
 
     void on_actionFileLoadSubtitle_triggered();
 
@@ -518,8 +524,14 @@ private:
     QActionGroup* videoTracksGroup = nullptr;
     QActionGroup* subtitleTracksGroup = nullptr;
     QAction * escShortcutActionBackup = nullptr;
+    QMenu *subsMenu = nullptr;
+    QMenu *muteMenu = nullptr;
 
     bool freestanding_ = false;
+    bool closeToTray = false;
+    bool minimizeToTray = false;
+    bool isHiddenToTray = false;
+    bool reallyClose = false;
     Helpers::TitlePrefix titlebarFormat_ = Helpers::PrefixFileName;
     bool mainwindowIsClosing = false; // Prevents toggleViewAction from affecting saved setting for actionViewHidePlaylist
     DecorationState decorationState_ = AllDecorations;
@@ -574,6 +586,7 @@ private:
     int currentAngle = 0;
     QUrl currentFile;
     QString currentFileTitle;
+    int previewHeightPercent = 0;
 
     IconThemer themer;
     QList<QAction *> menuFavoritesTail;

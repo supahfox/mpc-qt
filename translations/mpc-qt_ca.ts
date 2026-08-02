@@ -1467,6 +1467,10 @@ No s&apos;activarà cap acció.</translation>
         <translation>Memòria intermèdia (%1%)</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished">Error</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>Addició &amp;ràpida a llista de reproducció</translation>
     </message>
@@ -2121,6 +2125,14 @@ No s&apos;activarà cap acció.</translation>
     <message>
         <source>Reset to System</source>
         <translation>Restablir als valors del sistema</translation>
+    </message>
+    <message>
+        <source>Dark colors</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">Utilitzar colors foscos</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -4302,7 +4314,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>Limitar el volum al 100% igual que mpc-hc</translation>
+        <translation type="vanished">Limitar el volum al 100% igual que mpc-hc</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4738,7 +4750,7 @@ arxiu multimèdia reproduït</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>Mostrar la previsualització de vídeo (requereix reiniciar)</translation>
+        <translation type="vanished">Mostrar la previsualització de vídeo (requereix reiniciar)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4851,6 +4863,22 @@ arxiu multimèdia reproduït</translation>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
         <translation>Torna al primer/últim fitxer de la carpeta si cal</translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimize to tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close to tray</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

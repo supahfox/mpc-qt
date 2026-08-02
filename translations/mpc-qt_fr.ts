@@ -1443,6 +1443,10 @@ Aucune action ne sera déclenchée.</translation>
         <translation>Mise en mémoire tampon (%1 %)</translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation>Erreur</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation>Ajout &amp;rapide à la playlist</translation>
     </message>
@@ -2101,6 +2105,14 @@ Aucune action ne sera déclenchée.</translation>
     <message>
         <source>Reset to System</source>
         <translation>Réinitialiser au système</translation>
+    </message>
+    <message>
+        <source>Dark colors</source>
+        <translation>Couleurs sombres</translation>
+    </message>
+    <message>
+        <source>Use dark colors</source>
+        <translation type="obsolete">Utiliser des couleurs sombres</translation>
     </message>
     <message>
         <source>Generate</source>
@@ -4278,7 +4290,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>Limiter le volume à 100 % comme mpc-hc</translation>
+        <translation type="vanished">Limiter le volume à 100 % comme mpc-hc</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4706,7 +4718,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>%</source>
-        <translation>%</translation>
+        <translation> %</translation>
     </message>
     <message>
         <source>Enable background box</source>
@@ -4722,7 +4734,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>Show video preview (restart required)</source>
-        <translation>Afficher l&apos;aperçu vidéo (redémarrage requis)</translation>
+        <translation type="vanished">Afficher l&apos;aperçu vidéo (redémarrage requis)</translation>
     </message>
     <message>
         <source>There is not much reason to use this. HDMI supports uncompressed multichannel PCM, and mpv supports lossless DTS-HD</source>
@@ -4844,6 +4856,22 @@ fichier média lu</translation>
         <source>Loop back to first/last file in folder if needed</source>
         <translation>Retourner au premier/dernier fichier du dossier si nécessaire</translation>
     </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation>Augmenter le volume maximum à&#xa0;:</translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
+        <translation>Afficher l&apos;aperçu vidéo (redémarrage requis), définir sa hauteur à (% de l&apos;écran)&#xa0;:</translation>
+    </message>
+    <message>
+        <source>Minimize to tray</source>
+        <translation>Réduire dans la zone de notification</translation>
+    </message>
+    <message>
+        <source>Close to tray</source>
+        <translation>Fermer dans la zone de notification</translation>
+    </message>
 </context>
 <context>
     <name>StatusTime</name>
@@ -4896,7 +4924,7 @@ fichier média lu</translation>
     </message>
     <message>
         <source>%</source>
-        <translation>%</translation>
+        <translation> %</translation>
     </message>
     <message>
         <source>Width</source>

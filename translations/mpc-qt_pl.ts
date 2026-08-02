@@ -1465,6 +1465,10 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Error</source>
+        <translation type="unfinished">Błąd</translation>
+    </message>
+    <message>
         <source>&amp;Quick Add To Playlist</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2130,6 +2134,10 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Reset to System</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Dark colors</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4212,7 +4220,7 @@ media file played</source>
     </message>
     <message>
         <source>Limit volume to 100% like mpc-hc</source>
-        <translation>Ogranicz głośność do 100% jak w mpc-hc</translation>
+        <translation type="vanished">Ogranicz głośność do 100% jak w mpc-hc</translation>
     </message>
     <message>
         <source>Shorten the playback time indicator like mpc-hc</source>
@@ -4723,10 +4731,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Show video preview (restart required)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Replay Gain</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4764,6 +4768,22 @@ media file played</source>
     </message>
     <message>
         <source>Loop back to first/last file in folder if needed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Increase maximum volume to:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show video preview (restart required), set its height to (% of screen):</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Minimize to tray</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Close to tray</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
