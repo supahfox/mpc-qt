@@ -465,7 +465,7 @@ void PlaybackManager::speedDown()
                                      : mpvSpeed / speedStep;
     
     // DELETING LIMIT < 25% SPEED
-    double minSpeed = 0.01; 
+    double minSpeed = 0.10; 
     
     setPlaybackSpeed(std::max(minSpeed, speed));
 }
