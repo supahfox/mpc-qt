@@ -719,8 +719,8 @@ void SettingsWindow::sendSignals()
 
     emit appendToQuickPlaylist(WIDGET_LOOKUP(ui->playerAppendToQuickPlaylist).toBool());
     emit trayIcon(WIDGET_LOOKUP(ui->playerTrayIcon).toBool());
-    emit closeToTray(WIDGET_LOOKUP(ui->playerCloseToTray).toBool());
-    emit minimizeToTray(WIDGET_LOOKUP(ui->playerMinimizeToTray).toBool());
+    emit closeToTray(ui->playerCloseToTray->isEnabled() && WIDGET_LOOKUP(ui->playerCloseToTray).toBool());
+    emit minimizeToTray(ui->playerMinimizeToTray->isEnabled() && WIDGET_LOOKUP(ui->playerMinimizeToTray).toBool());
     emit showOsd(WIDGET_LOOKUP(ui->playerOSD).toBool());
     emit limitProportions(WIDGET_LOOKUP(ui->playerLimitProportions).toBool());
     emit disableOpenDiscMenu(WIDGET_LOOKUP(ui->playerDisableOpenDisc).toBool());
@@ -1410,14 +1410,6 @@ void SettingsWindow::on_playerOpenNew_toggled(bool checked)
     }
 }
 
-void SettingsWindow::on_playerTrayIcon_toggled(bool checked)
-{
-    if (!checked) {
-        ui->playerCloseToTray->setChecked(false);
-        ui->playerMinimizeToTray->setChecked(false);
-    }
-}
-
 void SettingsWindow::on_playerAppendToQuickPlaylist_toggled(bool checked)
 {
     if (checked)
@@ -1476,6 +1468,26 @@ void SettingsWindow::on_ccHdrMapper_currentIndexChanged(int index)
 void SettingsWindow::on_videoDumbMode_toggled(bool checked)
 {
     ui->videoTabs->setEnabled(!checked);
+}
+
+void SettingsWindow::on_scalingSigmoidizedUpscaling_toggled(bool checked)
+{
+    ui->sigmoidizedCenterLabel->setEnabled(checked);
+    ui->sigmoidizedCenter->setEnabled(checked);
+    ui->sigmoidizedSlopeLabel->setEnabled(checked);
+    ui->sigmoidizedSlope->setEnabled(checked);
+}
+
+void SettingsWindow::on_debandEnabled_toggled(bool checked)
+{
+    ui->debandIterationsLabel->setEnabled(checked);
+    ui->debandIterations->setEnabled(checked);
+    ui->debandThresholdLabel->setEnabled(checked);
+    ui->debandThreshold->setEnabled(checked);
+    ui->debandRangeLabel->setEnabled(checked);
+    ui->debandRange->setEnabled(checked);
+    ui->debandGrainLabel->setEnabled(checked);
+    ui->debandGrain->setEnabled(checked);
 }
 
 void SettingsWindow::on_logoExternalBrowse_clicked()
@@ -1721,6 +1733,24 @@ void SettingsWindow::on_hwdecEnable_toggled(bool checked)
 void SettingsWindow::on_audioSpdif_toggled(bool checked)
 {
     ui->audioSpdifCodecs->setEnabled(checked);
+}
+
+void SettingsWindow::on_audioAutoloadExternal_toggled(bool checked)
+{
+    ui->audioAutoloadPathLabel->setEnabled(checked);
+    ui->audioAutoloadPath->setEnabled(checked);
+    ui->audioAutoloadPathReset->setEnabled(checked);
+    ui->audioAutoloadMatchLabel->setEnabled(checked);
+    ui->audioAutoloadMatch->setEnabled(checked);
+}
+
+void SettingsWindow::on_replayGainMode_currentIndexChanged(int index)
+{
+    ui->replayGainPreampLabel->setEnabled(index != 0);
+    ui->replayGainPreamp->setEnabled(index != 0);
+    ui->replayGainFallbackLabel->setEnabled(index != 0);
+    ui->replayGainFallback->setEnabled(index != 0);
+    ui->replayGainClip->setEnabled(index != 0);
 }
 
 void SettingsWindow::on_subsBackgroundBoxEnabled_toggled(bool checked)

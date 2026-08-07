@@ -238,8 +238,6 @@ private slots:
 
     void on_playerOpenNew_toggled(bool checked);
 
-    void on_playerTrayIcon_toggled(bool checked);
-
     void on_playerAppendToQuickPlaylist_toggled(bool checked);
 
     void on_playerKeepHistory_toggled(bool checked);
@@ -255,6 +253,10 @@ private slots:
     void on_ccHdrMapper_currentIndexChanged(int index);
 
     void on_videoDumbMode_toggled(bool checked);
+
+    void on_scalingSigmoidizedUpscaling_toggled(bool checked);
+
+    void on_debandEnabled_toggled(bool checked);
 
     void on_logoExternalBrowse_clicked();
 
@@ -325,6 +327,10 @@ private slots:
     void on_hwdecEnable_toggled(bool checked);
 
     void on_audioSpdif_toggled(bool checked);
+
+    void on_audioAutoloadExternal_toggled(bool checked);
+
+    void on_replayGainMode_currentIndexChanged(int index);
 
     void on_subsBackgroundBoxEnabled_toggled(bool checked);
 

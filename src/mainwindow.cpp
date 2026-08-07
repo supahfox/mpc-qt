@@ -890,7 +890,10 @@ void MainWindow::setupStatus()
 {
     ui->tinyicon->setPixmap(renderPixmapFromSvg(tinyIconPath));
     connect(ui->statusTime, &StatusTime::customContextMenuRequested,
-            ui->statusTime, &StatusTime::showContextMenu);
+            ui->statusTime, [this](const QPointF &p) {
+                ui->statusTime->showContextMenu(p);
+                mousePressedInBottomArea = false;
+            });
     connect(ui->statusTime, &StatusTime::doubleClicked,
             ui->actionNavigateGoto, &QAction::trigger);
 }
@@ -1347,6 +1350,10 @@ void MainWindow::updateMouseHideTime()
                                  : mouseHideTimeWindowed);
 }
 
+void MainWindow::disableMouseHideTime()
+{
+    mpvObject_->setMouseHideTime(0);
+}
 
 void MainWindow::updateDiscList()
 {
@@ -1388,11 +1395,13 @@ void MainWindow::showOsdTimer(bool onSeek)
 void MainWindow::showSubsMenu()
 {
     subsMenu->exec(QCursor::pos());
+    mousePressedInBottomArea = false;
 }
 
 void MainWindow::showMuteMenu()
 {
     muteMenu->exec(QCursor::pos());
+    mousePressedInBottomArea = false;
 }
 
 QList<QUrl> MainWindow::doQuickOpenFileDialog()
@@ -3605,7 +3614,9 @@ void MainWindow::mpvw_customContextMenuRequested(const QPoint &pos)
 {
     if (mpvw == nullptr)
         return;
-    contextMenu->popup(mpvw->mapToGlobal(pos));
+    disableMouseHideTime();
+    contextMenu->exec(mpvw->mapToGlobal(pos));
+    updateMouseHideTime();
 }
 
 void MainWindow::position_sliderMoved(int position)
