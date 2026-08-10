@@ -22,11 +22,11 @@ VideoPreview::VideoPreview(QWidget *parent) : QWidget(parent)
     emit mpv->ctrlSetOptionVariant("hr-seek", "no");
     emit mpv->ctrlSetOptionVariant("audio", "no");
     emit mpv->ctrlSetOptionVariant("audio-display", "no");
-    setYtdlFormat();
-    emit mpv->ctrlSetOptionVariant("ytdl-raw-options", "js-runtimes=quickjs,"\
-                                                    "remote-components=ejs:github,"\
-                                                    "format-sort=[+size,+br,+res,+fps]");
+    emit mpv->ctrlSetOptionVariant("ytdl-format",
+        "bestvideo/best");
+    setYtdlRawOptions();
     emit mpv->ctrlSetOptionVariant("clipboard-backends", "clr");
+    mpv->setPaused(true);
 
     connect(mpv, &MpvObject::aspectChanged,
             this, &VideoPreview::updateWidth);
@@ -51,7 +51,6 @@ void VideoPreview::openFile(const QUrl &fileUrl)
     if (fileUrl.isEmpty())
         return;
     mpv->urlOpen(fileUrl);
-    mpv->setPaused(true);
     aspectRatioSet = false;
     aspectRatio = 0;
 }
@@ -71,10 +70,9 @@ void VideoPreview::show(const QString &text, double videoPosition, const QPoint 
     if (previewHeight != videoWidget->height()) {
         videoWidget->setFixedHeight(previewHeight);
         updateWidth(aspectRatio);
-        setYtdlFormat();
+        setYtdlRawOptions();
     }
     mpv->seek(videoPosition, false, true, true);
-    mpv->setPaused(true);
     videoWidget->update();
     setPreviewPosition(where, mainWindowWidth);
     show();
@@ -108,10 +106,11 @@ void VideoPreview::updateWidth(double newAspect)
         hide();
 }
 
-void VideoPreview::setYtdlFormat()
+void VideoPreview::setYtdlRawOptions()
 {
-    emit mpv->ctrlSetOptionVariant("ytdl-format",
-        QString("bestvideo[height>=?%1]/best[height>=?%1]/bestvideo/best").arg(videoWidget->height()));
+    emit mpv->ctrlSetOptionVariant("ytdl-raw-options", QString("js-runtimes=quickjs,"\
+                                                    "remote-components=ejs:github,"\
+                                                    "format-sort=[res:%1,+size,+br,+fps]").arg(videoWidget->height()));
 }
 
 void VideoPreview::show()
