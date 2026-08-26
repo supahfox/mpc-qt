@@ -45,6 +45,8 @@ public:
     void setScreensaverAbilities(QSet<ScreenSaver::Ability> ab);
     QSize desirableSize(bool first_run = false);
     QPoint desirablePosition(QSize &size, bool first_run = false) const;
+    QSize chromeSize() const;
+    QSize noVideoSize() const;
     void unfreezeWindow();
     void fixMpvwSize();
     void setActionPlayLoopUse();
@@ -73,7 +75,6 @@ private:
 
     DecorationState decorationState() const;
     bool fullscreenMode() const;
-    QSize noVideoSize() const;
     double sizeFactor() const;
 
     void setDiscState(bool playingADisc);
@@ -285,7 +286,7 @@ public slots:
     void setOsdTimerOnSeek(bool enabled);
     void setFullscreenHidePanels(bool hidden);
     void checkExitFullscreenOnEnd();
-    void setPlaybackState(PlaybackManager::PlaybackState state, int64_t bufferFillState);
+    void setPlaybackState(PlaybackManager::PlaybackState state, bool isPlaybackPaused, int64_t bufferFillState);
     void setPlaybackType(PlaybackManager::PlaybackType type);
     void disableChaptersMenus();
     void setChapters(QList<Chapter> chapters);
@@ -318,7 +319,6 @@ public slots:
     void setWindowShouldBeRaised(bool yes);
     void logWindowClosed();
     void libraryWindowClosed();
-    void mpvObject_mouseReleased();
 
 private slots:
     void on_actionFileOpenQuick_triggered();
