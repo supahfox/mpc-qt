@@ -1483,6 +1483,10 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <translation>Arabelleğe alınıyor (%%1)</translation>
     </message>
     <message>
+        <source>Seeking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation>Hata</translation>
     </message>
@@ -1954,6 +1958,10 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
         <source>Increase Delay</source>
         <translation>Gecikmeyi Artır</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2285,7 +2293,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation>Oynatma listesi dosyaları (*.m3u *.m3u8)</translation>
+        <translation type="vanished">Oynatma listesi dosyaları (*.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Export File</source>
@@ -2342,6 +2350,15 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     <message>
         <source>Enter playlist name</source>
         <translation>Oynatma listesi adı gir</translation>
+    </message>
+    <message>
+        <source>Playlist files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File &quot;%1&quot; already exists.
+Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>

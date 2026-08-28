@@ -66,16 +66,6 @@ MainWindow::MainWindow(QWidget *parent) :
     setUiEnabledState(false);
     setDiscState(false);
 
-    // Sync with X11
-    if (Platform::isUnix) {
-        setAttribute(Qt::WA_DontShowOnScreen, true);
-        show();
-        QApplication::processEvents(QEventLoop::AllEvents |
-                            QEventLoop::WaitForMoreEvents,
-                            50);
-        hide();
-        setAttribute(Qt::WA_DontShowOnScreen, false);
-    }
     setRemoveFileNotRecycle();
 }
 
@@ -355,6 +345,9 @@ void MainWindow::unfreezeWindow()
 // REMOVEME: work around bug on Wayland where video doesn't fit window
 void MainWindow::fixMpvwSize()
 {
+    firstMpvwPaint = false;
+    if (QGuiApplication::platformName() != "wayland")
+        return;
     QSize size = mpvw->size();
     mpvw->resize(size.width() + 1, size.height() + 1);
     mpvw->resize(size);
@@ -433,6 +426,8 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
     bool insideMpv = mpvw ? object == mpvw : false;
     if ((insideMpv || object == playlistWindow_) && event->type() == QEvent::MouseMove) {
         this->mouseMoveEvent(static_cast<QMouseEvent*>(event));
+    } else if (insideMpv && firstMpvwPaint && event->type() == QEvent::Paint && mpvw->isVisible()) {
+        fixMpvwSize();
     }
     if (object == ui->bottomArea) {
         if (event->type() == QEvent::Leave) {
@@ -1102,9 +1097,9 @@ void MainWindow::setUiEnabledState(bool enabled)
 
     ui->pause->setChecked(false);
 
-    ui->actionFileOpenDevice->setEnabled(false);
+    ui->actionFileOpenDevice->setVisible(enabled && false);
     ui->actionFileClose->setEnabled(enabled);
-    ui->actionFileSaveCopy->setEnabled(enabled && false);
+    ui->actionFileSaveCopy->setVisible(enabled && false);
     ui->menuFileScreenshot->setEnabled(enabled);
     ui->actionFileSaveImage->setEnabled(enabled);
     ui->actionFileSaveImageAuto->setEnabled(enabled);
@@ -1113,9 +1108,11 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionFileSaveWindowImage->setEnabled(enabled);
     ui->actionFileSaveWindowImageAuto->setEnabled(enabled);
     ui->actionFileSaveThumbnails->setEnabled(enabled);
-    ui->actionFileExportEncode->setEnabled(enabled && false);
+    ui->actionFileExportEncode->setVisible(enabled && false);
     ui->actionFileLoadSubtitle->setEnabled(enabled);
-    ui->actionFileSaveSubtitle->setEnabled(enabled && false);
+    ui->actionFileSaveSubtitle->setVisible(enabled && false);
+    ui->menuFileSubtitleDatabase->setEnabled(enabled);
+    ui->actionFileSubtitleDatabaseUpload->setEnabled(enabled && false);
     ui->actionFileSubtitleDatabaseDownload->setEnabled(enabled && false);
     ui->actionPlayStop->setEnabled(enabled);
     ui->actionPlayFrameBackward->setEnabled(enabled);
@@ -1131,9 +1128,6 @@ void MainWindow::setUiEnabledState(bool enabled)
     ui->actionNavigateGoto->setEnabled(enabled);
     ui->actionFavoritesAdd->setEnabled(enabled);
 
-    ui->menuFileSubtitleDatabase->setEnabled(enabled);
-    ui->actionFileSubtitleDatabaseUpload->setEnabled(false);
-    ui->actionFileSubtitleDatabaseDownload->setEnabled(false);
     ui->menuPlayLoop->setEnabled(enabled);
     if (!enabled) {
         ui->menuPlayAudio->setEnabled(false);
@@ -2239,6 +2233,9 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, bool isP
     case PlaybackManager::BufferingState:
         ui->status->setText(tr("Buffering (%1%)").arg(bufferFillState));
         break;
+    case PlaybackManager::SeekingState:
+        ui->status->setText(tr("Seeking"));
+        break;
     case PlaybackManager::WaitingState:
         ui->status->setText(tr("Loading"));
         break;
@@ -2258,7 +2255,11 @@ void MainWindow::setPlaybackState(PlaybackManager::PlaybackState state, bool isP
         positionSlider_->setLoopB(-1);
         ui->actionPlayLoopUse->setChecked(false);
     }
-    ui->play->setChecked(state == PlaybackManager::PlayingState && !isPlaybackPaused);
+    ui->play->setChecked(state != PlaybackManager::StoppedState &&
+                         state != PlaybackManager::ErrorState &&
+                         !isPlaybackPaused);
+    if (ui->play->isChecked())
+        ui->play->setFocus();
     ui->pause->setChecked(isPaused && state != PlaybackManager::StoppedState);
     ui->stop->setChecked(state == PlaybackManager::StoppedState);
     updateOnTop();
@@ -2413,6 +2414,7 @@ void MainWindow::setSubtitleTracks(QList<Track > tracks)
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesPrevious);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesNext);
     ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesCopy);
+    ui->menuPlaySubtitles->addAction(ui->actionPlaySubtitlesReloadFile);
     ui->menuPlaySubtitles->addMenu(ui->menuPlaySubtitlesDelay);
     ui->menuPlaySubtitles->addMenu(ui->menuPlaySubtitlesMove);
     subtitleTracksGroup->actions().constFirst()->setChecked(true);
@@ -3422,6 +3424,11 @@ void MainWindow::on_actionPlaySubtitlesCopy_triggered()
 {
     QClipboard *clippy = QApplication::clipboard();
     clippy->setText(subtitleText);
+}
+
+void MainWindow::on_actionPlaySubtitlesReloadFile_triggered()
+{
+    mpvObject_->reloadSubFile();
 }
 
 void MainWindow::on_actionDecreaseSubtitlesDelay_triggered()

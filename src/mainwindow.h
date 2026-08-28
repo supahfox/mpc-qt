@@ -446,6 +446,7 @@ private slots:
     void on_actionPlaySubtitlesNext_triggered();
     void on_actionPlaySubtitlesPrevious_triggered();
     void on_actionPlaySubtitlesCopy_triggered();
+    void on_actionPlaySubtitlesReloadFile_triggered();
     void on_actionDecreaseSubtitlesDelay_triggered();
     void on_actionIncreaseSubtitlesDelay_triggered();
     void on_actionMoveSubtitlesUp_triggered();
@@ -588,6 +589,7 @@ private:
     QUrl currentFile;
     QString currentFileTitle;
     int previewHeightPercent = 0;
+    bool firstMpvwPaint = true;
 
     IconThemer themer;
     QList<QAction *> menuFavoritesTail;

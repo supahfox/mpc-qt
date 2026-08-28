@@ -1475,6 +1475,10 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <translation>Membuffer (%1%)</translation>
     </message>
     <message>
+        <source>Seeking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation type="unfinished">Kesalahan</translation>
     </message>
@@ -1910,6 +1914,10 @@ Tidak ada tindakan yang akan dipicu.</translation>
         <source>Increase Delay</source>
         <translation>Tambahkan Delay</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2225,7 +2233,7 @@ Tidak ada tindakan yang akan dipicu.</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation>File daftar putar (*.m3u *.m3u8)</translation>
+        <translation type="vanished">File daftar putar (*.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Open</source>
@@ -2274,6 +2282,15 @@ Tidak ada tindakan yang akan dipicu.</translation>
     <message>
         <source>Enter playlist name</source>
         <translation>Masukkan nama daftar putar</translation>
+    </message>
+    <message>
+        <source>Playlist files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File &quot;%1&quot; already exists.
+Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>

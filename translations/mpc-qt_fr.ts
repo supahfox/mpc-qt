@@ -1443,6 +1443,10 @@ Aucune action ne sera déclenchée.</translation>
         <translation>Mise en mémoire tampon (%1 %)</translation>
     </message>
     <message>
+        <source>Seeking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation>Erreur</translation>
     </message>
@@ -1910,6 +1914,10 @@ Aucune action ne sera déclenchée.</translation>
         <source>Increase Delay</source>
         <translation>Augmenter le délai</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2241,7 +2249,7 @@ Aucune action ne sera déclenchée.</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation>Fichiers de liste (*.m3u *.m3u8)</translation>
+        <translation type="vanished">Fichiers de liste (*.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Export File</source>
@@ -2290,6 +2298,15 @@ Aucune action ne sera déclenchée.</translation>
     <message>
         <source>Enter playlist name</source>
         <translation>Entrer le nom de la liste</translation>
+    </message>
+    <message>
+        <source>Playlist files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File &quot;%1&quot; already exists.
+Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>

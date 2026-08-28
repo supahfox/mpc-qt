@@ -1491,6 +1491,10 @@ No action will be triggered.</source>
         <translation>正在缓冲（%1%）</translation>
     </message>
     <message>
+        <source>Seeking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation>错误</translation>
     </message>
@@ -1930,6 +1934,10 @@ No action will be triggered.</source>
         <source>Increase Delay</source>
         <translation>增加延迟</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2261,7 +2269,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation>播放列表文件 (*.m3u *.m3u8)</translation>
+        <translation type="vanished">播放列表文件 (*.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Export File</source>
@@ -2318,6 +2326,15 @@ No action will be triggered.</source>
     <message>
         <source>Enter playlist name</source>
         <translation>输入播放列表名称</translation>
+    </message>
+    <message>
+        <source>Playlist files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File &quot;%1&quot; already exists.
+Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>

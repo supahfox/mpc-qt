@@ -1379,6 +1379,10 @@ Mitään toimintoa ei suoriteta.</translation>
         <translation>Puskuroidaan (%1%)</translation>
     </message>
     <message>
+        <source>Seeking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1786,6 +1790,10 @@ Mitään toimintoa ei suoriteta.</translation>
         <source>Increase Delay</source>
         <translation>Lisää viivettä</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2113,7 +2121,7 @@ Mitään toimintoa ei suoriteta.</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation>Soittolistatiedostot (*.m3u *.m3u8)</translation>
+        <translation type="vanished">Soittolistatiedostot (*.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Export File</source>
@@ -2170,6 +2178,15 @@ Mitään toimintoa ei suoriteta.</translation>
     <message>
         <source>Enter playlist name</source>
         <translation>Kirjoita Soittolistan Nimi</translation>
+    </message>
+    <message>
+        <source>Playlist files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File &quot;%1&quot; already exists.
+Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>

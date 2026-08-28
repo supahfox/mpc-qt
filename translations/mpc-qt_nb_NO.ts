@@ -1345,6 +1345,10 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Seeking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1720,6 +1724,10 @@ No action will be triggered.</source>
         <source>Increase Delay</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2030,10 +2038,6 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Export File</source>
         <translation type="vanished">Eksporter fil</translation>
     </message>
@@ -2083,6 +2087,15 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Enter playlist name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Playlist files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File &quot;%1&quot; already exists.
+Do you want to replace it?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

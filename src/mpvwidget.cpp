@@ -490,6 +490,11 @@ void MpvObject::addSubFile(QString filename)
     emit ctrlCommand(QStringList({"sub-add", filename}));
 }
 
+void MpvObject::reloadSubFile()
+{
+    emit ctrlCommand("sub-reload");
+}
+
 void MpvObject::clearSubFiles()
 {
     emit ctrlSetOptionVariant("sub-files-clr", "");
@@ -860,6 +865,18 @@ void MpvObject::ctrl_unhandledMpvEvent(int eventLevel)
         if (debugMessages)
             Logger::log(logModule, "end file");
         emit playbackFinished();
+        break;
+    }
+    case MPV_EVENT_SEEK: {
+        if (debugMessages)
+            Logger::log(logModule, "seek");
+        emit playbackSeeking();
+        break;
+    }
+    case MPV_EVENT_PLAYBACK_RESTART: {
+        if (debugMessages)
+            Logger::log(logModule, "playback restart");
+        emit playbackRestart();
         break;
     }
     case MPV_EVENT_SHUTDOWN: {

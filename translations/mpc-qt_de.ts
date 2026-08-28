@@ -1491,6 +1491,10 @@ Es wird keine Aktion ausgelöst.</translation>
         <translation>Puffern (%1%)</translation>
     </message>
     <message>
+        <source>Seeking</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Error</source>
         <translation type="unfinished">Fehler</translation>
     </message>
@@ -1970,6 +1974,10 @@ Es wird keine Aktion ausgelöst.</translation>
         <source>Increase Delay</source>
         <translation>Verzögerung erhöhen</translation>
     </message>
+    <message>
+        <source>&amp;Reload Subtitles File</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MouseState</name>
@@ -2297,7 +2305,7 @@ Es wird keine Aktion ausgelöst.</translation>
     </message>
     <message>
         <source>Playlist files (*.m3u *.m3u8)</source>
-        <translation>Playlist-Dateien (*.m3u *.m3u8)</translation>
+        <translation type="vanished">Playlist-Dateien (*.m3u *.m3u8)</translation>
     </message>
     <message>
         <source>Open</source>
@@ -2350,6 +2358,15 @@ Es wird keine Aktion ausgelöst.</translation>
     <message>
         <source>Enter playlist name</source>
         <translation>Playlist-Name eingeben</translation>
+    </message>
+    <message>
+        <source>Playlist files</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>File &quot;%1&quot; already exists.
+Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
