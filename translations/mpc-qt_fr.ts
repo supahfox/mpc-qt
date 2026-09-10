@@ -4914,6 +4914,10 @@ fichier média lu</translation>
         <translation>Afficher le pourcentage</translation>
     </message>
     <message>
+        <source>Show tooltip</source>
+        <translation>Afficher l&apos;infobulle</translation>
+    </message>
+    <message>
         <source>Played: %1</source>
         <translation>Lu&#xa0;: %1</translation>
     </message>

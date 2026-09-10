@@ -797,7 +797,11 @@ void SettingsWindow::sendSignals()
     emit afterPlaybackDefault(Helpers::AfterPlayback(WIDGET_LOOKUP(ui->afterPlaybackDefault).toInt()));
 
     emit option("ytdl-format", QString("bestvideo+bestaudio/best"));
-    emit option("ytdl-raw-options", QString("format-sort=res:%1,js-runtimes=quickjs,remote-components=ejs:github").arg(WIDGET_TO_TEXT(ui->ytdlpMaxHeight)));
+    QStringList subtitleLangPref = WIDGET_PLACEHOLD_LOOKUP(ui->playbackSubtitleTracks).split(QRegularExpression("[^\\w-]+"), Qt::SkipEmptyParts);
+    emit option("ytdl-raw-options",
+        QString("format-sort=res:%1,js-runtimes=quickjs,remote-components=ejs:github,write-auto-subs=,sub-langs=[%2,.*-orig]")
+        .arg(WIDGET_TO_TEXT(ui->ytdlpMaxHeight))
+        .arg(subtitleLangPref.join(",")));
 
     emit zoomCenter(WIDGET_LOOKUP(ui->playbackAutoCenterWindow).toBool());
     double factor = WIDGET_LOOKUP(ui->playbackAutoFitFactor).toInt() / 100.0;
@@ -1414,6 +1418,12 @@ void SettingsWindow::on_playerAppendToQuickPlaylist_toggled(bool checked)
 {
     if (checked)
         ui->playerRememberQuickPlaylist->setChecked(false);
+}
+
+void SettingsWindow::on_playerTrayIcon_toggled(bool checked)
+{
+    ui->playerMinimizeToTray->setEnabled(QGuiApplication::platformName() == "wayland" ? false : checked);
+    ui->playerCloseToTray->setEnabled(checked);
 }
 
 void SettingsWindow::on_playerKeepHistory_toggled(bool checked)

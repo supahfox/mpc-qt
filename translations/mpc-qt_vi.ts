@@ -3223,7 +3223,7 @@ tệp phương tiện đã được phát</translation>
     </message>
     <message>
         <source>2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">2</translation>
     </message>
     <message>
         <source>Anti-ring</source>
@@ -4960,6 +4960,10 @@ tệp phương tiện đã được phát</translation>
     <message>
         <source>Show percentage</source>
         <translation>Hiển thị phần trăm</translation>
+    </message>
+    <message>
+        <source>Show tooltip</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Played: %1</source>

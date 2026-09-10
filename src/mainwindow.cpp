@@ -189,7 +189,8 @@ QVariantMap MainWindow::state()
         { "shownStatsPage", mpvObject_->selectedStatsPage() },
         { "timeShortMode", ui->statusTime->shortMode() },
         { "timeRemainingMode", ui->statusTime->remainingMode() },
-        { "timePercentageMode", ui->statusTime->percentMode() }
+        { "timePercentageMode", ui->statusTime->percentMode() },
+        { "timeHoverTooltip", ui->statusTime->showTooltip() }
     };
 #undef WRAP
 }
@@ -235,6 +236,7 @@ void MainWindow::setState(const QVariantMap &map)
     ui->statusTime->setShortMode(map.value("timeShortMode", true).toBool());
     ui->statusTime->setRemainingMode(map.value("timeRemainingMode", false).toBool());
     ui->statusTime->setPercentMode(map.value("timePercentageMode", false).toBool());
+    ui->statusTime->setShowTooltip(map.value("timeHoverTooltip", true).toBool());
     updateOnTop();
 
 #undef UNWRAP
@@ -345,7 +347,6 @@ void MainWindow::unfreezeWindow()
 // REMOVEME: work around bug on Wayland where video doesn't fit window
 void MainWindow::fixMpvwSize()
 {
-    firstMpvwPaint = false;
     if (QGuiApplication::platformName() != "wayland")
         return;
     QSize size = mpvw->size();
@@ -427,7 +428,8 @@ bool MainWindow::eventFilter(QObject *object, QEvent *event)
     if ((insideMpv || object == playlistWindow_) && event->type() == QEvent::MouseMove) {
         this->mouseMoveEvent(static_cast<QMouseEvent*>(event));
     } else if (insideMpv && firstMpvwPaint && event->type() == QEvent::Paint && mpvw->isVisible()) {
-        fixMpvwSize();
+        firstMpvwPaint = false;
+        QTimer::singleShot(0, this, &MainWindow::fixMpvwSize);
     }
     if (object == ui->bottomArea) {
         if (event->type() == QEvent::Leave) {
@@ -2756,21 +2758,24 @@ void MainWindow::on_actionViewHideMenu_triggered()
 
 void MainWindow::on_actionViewHideSeekbar_toggled(bool checked)
 {
-    if (checked && ui->seekbar->isHidden())
+    if (checked && ui->seekbar->isHidden()) {
         ui->seekbar->show();
-    else if (!checked && ui->seekbar->isVisible())
+        ui->controlbar->layout()->update();
+        ui->seekbar->update();
+    } else if (!checked && ui->seekbar->isVisible()) {
         ui->seekbar->hide();
-    ui->controlSection->adjustSize();
+    }
     updateSize();
 }
 
 void MainWindow::on_actionViewHideControls_toggled(bool checked)
 {
-    if (checked && ui->controlbar->isHidden())
+    if (checked && ui->controlbar->isHidden()) {
         ui->controlbar->show();
-    else if (!checked && ui->controlbar->isVisible())
+        ui->controlbar->layout()->update();
+    } else if (!checked && ui->controlbar->isVisible()) {
         ui->controlbar->hide();
-    ui->controlSection->adjustSize();
+    }
     updateSize();
 }
 
