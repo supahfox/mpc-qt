@@ -17,11 +17,11 @@
     </message>
     <message>
         <source>(Unknown)</source>
-        <translation type="unfinished">(Unknown)</translation>
+        <translation>(Ukendt)</translation>
     </message>
     <message>
         <source>About Media Player Classic Qute Theater</source>
-        <translation type="unfinished">About Media Player Classic Qute Theater</translation>
+        <translation>Om Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Media Player Classic Qute Theater</source>
@@ -29,15 +29,15 @@
     </message>
     <message>
         <source>A clone of Media Player Classic written in Qt</source>
-        <translation type="unfinished">A clone of Media Player Classic written in Qt</translation>
+        <translation>En klon af Media Player Classic skrevet i Qt</translation>
     </message>
     <message>
         <source>Based on Qt %1 and %2</source>
-        <translation type="unfinished">Based on Qt %1 and %2</translation>
+        <translation>Baseret på Qt %1 og %2</translation>
     </message>
     <message>
         <source>Running on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Kører på %1</translation>
     </message>
     <message>
         <source>Running under %1</source>
@@ -48,11 +48,11 @@
     <name>ActionEditor</name>
     <message>
         <source>Command</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommando</translation>
     </message>
     <message>
         <source>Key</source>
-        <translation type="unfinished"></translation>
+        <translation>Tast</translation>
     </message>
     <message>
         <source>Mouse Window</source>
@@ -318,7 +318,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     <name>Flow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Start a new process without saving data.</source>
@@ -423,7 +423,7 @@ Do you want to use it for &quot;%3&quot; instead?</source>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Clear</translation>
     </message>
     <message>
         <source>Save File</source>
@@ -450,7 +450,7 @@ No action will be triggered.</source>
     <name>MainWindow</name>
     <message>
         <source>Media Player Classic Qute Theater</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Media Player Classic Qute Theater</translation>
     </message>
     <message>
         <source>Play</source>
@@ -1210,7 +1210,7 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Close Tab</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Close Tab</translation>
     </message>
     <message>
         <source>Ctrl+Shift+W</source>
@@ -1993,11 +1993,11 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Left</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Right</translation>
     </message>
     <message>
         <source>Middle</source>
@@ -2972,7 +2972,7 @@ media file played</source>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Auto</translation>
     </message>
     <message>
         <source>Time step</source>
@@ -3156,7 +3156,7 @@ media file played</source>
     </message>
     <message>
         <source>No</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">No</translation>
     </message>
     <message>
         <source>Size</source>
@@ -3981,7 +3981,7 @@ media file played</source>
     </message>
     <message>
         <source>Yes</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Yes</translation>
     </message>
     <message>
         <source>Yes and only zoom signs</source>
@@ -4249,7 +4249,7 @@ media file played</source>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Error</translation>
     </message>
     <message>
         <source>Warning</source>
@@ -4975,7 +4975,7 @@ media file played</source>
     <name>ThumbnailerWindow</name>
     <message>
         <source>Source</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Source</translation>
     </message>
     <message>
         <source>&amp;Browse...</source>
