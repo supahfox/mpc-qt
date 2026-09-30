@@ -1363,6 +1363,10 @@ Mitään toimintoa ei suoriteta.</translation>
         <translation>Ei suosikkitiedostoja</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No streams favorited</source>
         <translation>Ei suosikkistriimejä</translation>
     </message>
@@ -2186,6 +2190,10 @@ Mitään toimintoa ei suoriteta.</translation>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Containing Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

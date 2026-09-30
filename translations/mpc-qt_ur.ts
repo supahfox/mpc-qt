@@ -1405,6 +1405,10 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hide &amp;Borders</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2183,6 +2187,10 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Copy To clipboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Containing Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

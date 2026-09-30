@@ -54,6 +54,7 @@ public:
     void updateLanguage();
 
 protected:
+    bool event(QEvent *event) override;
     void resizeEvent(QResizeEvent *event);
     void changeEvent(QEvent *event) override;
     void moveEvent(QMoveEvent *event) override;
@@ -319,6 +320,7 @@ public slots:
     void setWindowShouldBeRaised(bool yes);
     void logWindowClosed();
     void libraryWindowClosed();
+    void mpvVolumeChanged(int64_t level);
 
 private slots:
     void on_actionFileOpenQuick_triggered();
@@ -589,7 +591,6 @@ private:
     QUrl currentFile;
     QString currentFileTitle;
     int previewHeightPercent = 0;
-    bool firstMpvwPaint = true;
 
     IconThemer themer;
     QList<QAction *> menuFavoritesTail;

@@ -1463,6 +1463,10 @@ No action will be triggered.</source>
         <translation>هیچ پرونده‌ای نشان نشده است</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No streams favorited</source>
         <translation>هیچ جریانی نشان نشده است</translation>
     </message>
@@ -2376,6 +2380,10 @@ No action will be triggered.</source>
 Do you want to replace it?</source>
         <translation>پروندهٔ &quot;%1&quot; از قبل وجود دارد.
 آیا می‌خواهید آن را جایگزین کنید؟</translation>
+    </message>
+    <message>
+        <source>Open Containing Folder</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>

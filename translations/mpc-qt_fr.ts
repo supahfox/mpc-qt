@@ -1387,6 +1387,10 @@ Aucune action ne sera déclenchée.</translation>
         <translation>Affichage</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation>%1 %</translation>
+    </message>
+    <message>
         <source>Hide &amp;Borders</source>
         <translation>Masquer les &amp;bords</translation>
     </message>
@@ -2308,6 +2312,10 @@ Aucune action ne sera déclenchée.</translation>
 Do you want to replace it?</source>
         <translation>Le fichier &quot;%1&quot; existe déjà.
 Voulez-vous le remplacer&#x202f;?</translation>
+    </message>
+    <message>
+        <source>Open Containing Folder</source>
+        <translation>Ouvrir le dossier contenant</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>

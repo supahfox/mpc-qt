@@ -1435,6 +1435,10 @@ Es wird keine Aktion ausgelöst.</translation>
         <translation>Ansicht</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>Hide &amp;Borders</source>
         <translation>&amp;Ränder verbergen</translation>
     </message>
@@ -2366,6 +2370,10 @@ Es wird keine Aktion ausgelöst.</translation>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Containing Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

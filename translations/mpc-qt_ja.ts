@@ -1435,6 +1435,10 @@ No action will be triggered.</source>
         <translation>表示</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation>%1%</translation>
+    </message>
+    <message>
         <source>Hide &amp;Borders</source>
         <translation>境界線を隠す(&amp;B)</translation>
     </message>
@@ -2380,6 +2384,10 @@ No action will be triggered.</source>
 Do you want to replace it?</source>
         <translation>ファイル &quot;%1&quot; は既に存在します。
 置き換えますか?</translation>
+    </message>
+    <message>
+        <source>Open Containing Folder</source>
+        <translation>ファイルの場所を開く</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>

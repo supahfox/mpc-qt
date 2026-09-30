@@ -1417,6 +1417,10 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No streams favorited</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2192,6 +2196,10 @@ No action will be triggered.</source>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Containing Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

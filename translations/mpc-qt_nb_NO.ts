@@ -1333,6 +1333,10 @@ No action will be triggered.</source>
         <translation>Ingen filer favorittmerket</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No streams favorited</source>
         <translation>Ingen strømmer favorittmerket</translation>
     </message>
@@ -2096,6 +2100,10 @@ No action will be triggered.</source>
     <message>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Containing Folder</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

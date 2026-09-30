@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS>
-<TS version="2.1" language="zh_CN">
+<TS version="2.1" language="zh_Hans">
 <context>
     <name>About</name>
     <message>
@@ -1435,6 +1435,10 @@ No action will be triggered.</source>
         <translation>视图</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation>%1%</translation>
+    </message>
+    <message>
         <source>Hide &amp;Borders</source>
         <translation>隐藏边框(&amp;B)</translation>
     </message>
@@ -2336,6 +2340,10 @@ No action will be triggered.</source>
 Do you want to replace it?</source>
         <translation>文件“%1”已存在。
 是否要将其替换？</translation>
+    </message>
+    <message>
+        <source>Open Containing Folder</source>
+        <translation>打开所在文件夹</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>

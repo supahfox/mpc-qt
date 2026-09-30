@@ -1431,6 +1431,10 @@ No action will be triggered.</source>
         <translation>Zobrazit</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation>%1 %</translation>
+    </message>
+    <message>
         <source>Hide &amp;Borders</source>
         <translation>&amp;Skrýt ohraničení</translation>
     </message>
@@ -2356,6 +2360,10 @@ No action will be triggered.</source>
 Do you want to replace it?</source>
         <translation>Soubor &quot;%1&quot; již existuje.
 Chcete ho nahradit?</translation>
+    </message>
+    <message>
+        <source>Open Containing Folder</source>
+        <translation>Otevřít umístění souboru</translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>

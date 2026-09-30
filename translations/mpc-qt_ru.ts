@@ -1451,6 +1451,10 @@ No action will be triggered.</source>
         <translation>Нет избранных файлов</translation>
     </message>
     <message>
+        <source>%1%</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>No streams favorited</source>
         <translation>Нет избранных потоков</translation>
     </message>
@@ -2311,6 +2315,10 @@ No action will be triggered.</source>
         <source>File &quot;%1&quot; already exists.
 Do you want to replace it?</source>
         <translation>Файл &quot;%1&quot; уже существует. Заменить его?</translation>
+    </message>
+    <message>
+        <source>Open Containing Folder</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&amp;New Playlist</source>
