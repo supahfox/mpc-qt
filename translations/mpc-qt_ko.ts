@@ -718,15 +718,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+0</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>See&amp;k Bar</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -734,15 +726,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -750,15 +734,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>S&amp;tatus</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+5</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -766,15 +742,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+6</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Play&amp;list</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+7</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -782,15 +750,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Ctrl+8</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Na&amp;vigation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Ctrl+9</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -798,23 +758,11 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Compact</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Normal</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>3</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -826,23 +774,7 @@ No action will be triggered.</source>
         <translation type="vanished">Alt+Return</translation>
     </message>
     <message>
-        <source>Alt+1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+2</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Auto &amp;Fit</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+4</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -850,15 +782,7 @@ No action will be triggered.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Alt+5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&amp;Disable snapping</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Alt+0</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2112,6 +2036,10 @@ No action will be triggered.</source>
     </message>
     <message>
         <source>Select File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Browse...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3520,10 +3448,6 @@ media file played</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Browse</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Audio Renderer</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4034,10 +3958,6 @@ media file played</source>
     </message>
     <message>
         <source>Screenshot</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4870,6 +4790,10 @@ media file played</source>
     </message>
     <message>
         <source>Maximum video resolution:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>mpv options file:</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

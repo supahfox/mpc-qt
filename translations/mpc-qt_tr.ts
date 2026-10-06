@@ -720,7 +720,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Ctrl+0</source>
-        <translation>Kontrol+0</translation>
+        <translation type="vanished">Kontrol+0</translation>
     </message>
     <message>
         <source>See&amp;k Bar</source>
@@ -728,7 +728,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Ctrl+1</source>
-        <translation>Kontrol+1</translation>
+        <translation type="vanished">Kontrol+1</translation>
     </message>
     <message>
         <source>&amp;Controls</source>
@@ -736,7 +736,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Ctrl+2</source>
-        <translation>Kontrol+2</translation>
+        <translation type="vanished">Kontrol+2</translation>
     </message>
     <message>
         <source>&amp;Information</source>
@@ -744,7 +744,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Ctrl+3</source>
-        <translation>Kontrol+3</translation>
+        <translation type="vanished">Kontrol+3</translation>
     </message>
     <message>
         <source>&amp;Statistics</source>
@@ -752,7 +752,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Ctrl+4</source>
-        <translation>Kontrol+4</translation>
+        <translation type="vanished">Kontrol+4</translation>
     </message>
     <message>
         <source>S&amp;tatus</source>
@@ -760,7 +760,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Ctrl+5</source>
-        <translation>Kontrol+5</translation>
+        <translation type="vanished">Kontrol+5</translation>
     </message>
     <message>
         <source>Su&amp;bresync</source>
@@ -768,7 +768,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Ctrl+6</source>
-        <translation>Kontrol+6</translation>
+        <translation type="vanished">Kontrol+6</translation>
     </message>
     <message>
         <source>Play&amp;list</source>
@@ -776,7 +776,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Ctrl+7</source>
-        <translation>Kontrol+7</translation>
+        <translation type="vanished">Kontrol+7</translation>
     </message>
     <message>
         <source>Captu&amp;re</source>
@@ -784,7 +784,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Ctrl+8</source>
-        <translation>Kontrol+8</translation>
+        <translation type="vanished">Kontrol+8</translation>
     </message>
     <message>
         <source>Na&amp;vigation</source>
@@ -792,7 +792,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Ctrl+9</source>
-        <translation>Kontrol+9</translation>
+        <translation type="vanished">Kontrol+9</translation>
     </message>
     <message>
         <source>&amp;Minimal</source>
@@ -800,7 +800,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>1</source>
-        <translation>1</translation>
+        <translation type="vanished">1</translation>
     </message>
     <message>
         <source>&amp;Compact</source>
@@ -808,7 +808,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>2</source>
-        <translation>2</translation>
+        <translation type="vanished">2</translation>
     </message>
     <message>
         <source>&amp;Normal</source>
@@ -816,7 +816,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>3</source>
-        <translation>3</translation>
+        <translation type="vanished">3</translation>
     </message>
     <message>
         <source>F&amp;ullscreen</source>
@@ -828,15 +828,15 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Alt+1</source>
-        <translation>Seçenek+1</translation>
+        <translation type="vanished">Seçenek+1</translation>
     </message>
     <message>
         <source>Alt+2</source>
-        <translation>Seçenek+2</translation>
+        <translation type="vanished">Seçenek+2</translation>
     </message>
     <message>
         <source>Alt+3</source>
-        <translation>Seçenek+3</translation>
+        <translation type="vanished">Seçenek+3</translation>
     </message>
     <message>
         <source>Auto &amp;Fit</source>
@@ -844,7 +844,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Alt+4</source>
-        <translation>Seçenek+4</translation>
+        <translation type="vanished">Seçenek+4</translation>
     </message>
     <message>
         <source>Auto Fit (&amp;Larger Only)</source>
@@ -852,7 +852,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Alt+5</source>
-        <translation>Seçenek+5</translation>
+        <translation type="vanished">Seçenek+5</translation>
     </message>
     <message>
         <source>&amp;Disable snapping</source>
@@ -860,7 +860,7 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     </message>
     <message>
         <source>Alt+0</source>
-        <translation>Seçenek+0</translation>
+        <translation type="vanished">Seçenek+0</translation>
     </message>
     <message>
         <source>&amp;Default</source>
@@ -2142,6 +2142,10 @@ Herhangi bir eylem tetiklenmeyecek.</translation>
     <message>
         <source>Select File</source>
         <translation>Dosya Seç</translation>
+    </message>
+    <message>
+        <source>Browse...</source>
+        <translation type="unfinished">Göz At…</translation>
     </message>
 </context>
 <context>
@@ -3562,7 +3566,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>Browse</source>
-        <translation>Göz At</translation>
+        <translation type="vanished">Göz At</translation>
     </message>
     <message>
         <source>Audio Renderer</source>
@@ -4079,7 +4083,7 @@ yeni bir &amp;oynatıcı aç</translation>
     </message>
     <message>
         <source>...</source>
-        <translation>…</translation>
+        <translation type="vanished">…</translation>
     </message>
     <message>
         <source>Encode</source>
@@ -4932,6 +4936,10 @@ yeni bir &amp;oynatıcı aç</translation>
     <message>
         <source>Maximum video resolution:</source>
         <translation>En büyük video çözünürlüğü:</translation>
+    </message>
+    <message>
+        <source>mpv options file:</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
